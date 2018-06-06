@@ -1,0 +1,72 @@
+<section class="min-h-screen h-auto w-full bg-grey-lighter">
+  <div class="container mx-auto py-8">
+	<div class="flex items-center justify-between mb-8">
+	  <h2 class="text-xl text-grey-dark">Users list</h2>
+	  <a href="<%= new_user_path() %>" class="flex items-center px-6 py-3 rounded bg-blue hover:bg-blue-dark text-white">
+		<span class="text-blue-lightest mr-2">
+		  <i class="fas fa-plus"></i>
+		</span>
+		<span>Ajouter un utilisateur</span>
+	  </a>
+	</div>
+	<div class="p-8 rounded shadow-md bg-white">
+	  <div class="flex flex-col px-4">
+		<div class="flex justify-between -mx-4 pb-4">
+		  <div class="px-4 w-1/5 font-medium text-sm uppercase tracking-wide text-grey-dark">
+			<%= link_to users_path(order: 'firstname') do %>
+			  <span>Firstname</span>
+			  <span class="text-grey-light">
+				<i class="fas fa-caret-down"></i>
+			  </span>
+			<% end %>
+		  </div>
+		  <div class="px-4 w-1/5 font-medium text-sm uppercase tracking-wide text-grey-dark">
+			<a href="#">
+			  <span>Lastname</span>
+			  <span class="text-grey-light">
+				<i class="fas fa-caret-down"></i>
+			  </span>
+			</a>
+		  </div>
+		  <div class="px-4 w-1/5 font-medium text-sm uppercase tracking-wide text-grey-dark">
+			<a href="#">
+			  <span>Email</span>
+			  <span class="text-grey-light">
+				<i class="fas fa-caret-down"></i>
+			  </span>
+			</a>
+		  </div>
+		  <div class="px-4 w-1/5 font-medium text-sm uppercase tracking-wide text-grey-dark">
+			<a href="#">
+			  <span>Birthdate</span>
+			  <span class="text-grey-light">
+				<i class="fas fa-caret-down"></i>
+			  </span>
+			</a>
+		  </div>
+		  <div class="px-4 w-1/5 font-medium text-sm uppercase tracking-wide text-grey-dark">
+			<a href="#">
+			  <span>Phone number</span>
+			  <span class="text-grey-light">
+				<i class="fas fa-caret-down"></i>
+			  </span>
+			</a>
+		  </div>
+		</div>
+		<div class="flex flex-col px-4 pt-4 border-t border-grey-lighter">
+		  <%- @users.each_with_index do |user, index| %>
+			<%= link_to user_path(user) do %>
+			  <div class="flex justify-between -mx-4 hover:bg-grey-lighter <%= index.to_i % 2 === 0 ? nil : 'bg-grey-lightest' %>">
+				<div class="p-4 w-1/5 truncate"><%= user.firstname %></div>
+				<div class="p-4 w-1/5 truncate"><%= user.lastname %></div>
+				<div class="p-4 w-1/5 truncate"><%= user.email %></div>
+				<div class="p-4 w-1/5 truncate"><%= user.birthdate.strftime('%d/%m/%Y') %></div>
+				<div class="p-4 w-1/5 truncate"><%= user.phone %></div>
+			  </div>
+			<% end %>
+		  <% end %>
+		</div>
+	  </div>
+	</div>
+  </div>
+</section>

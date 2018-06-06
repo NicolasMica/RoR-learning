@@ -1,0 +1,57 @@
+<%= form_for @user do |f| %>
+  <!-- FORM -->
+  <div class="flex flex-col mb-4">
+	<!-- FIRSTNAME -->
+	<div class="block mb-4 w-full">
+	  <%= f.label :firstname, class: 'block mb-2 uppercase font-bold text-sm text-grey-dark' %>
+	  <%= f.text_field :firstname, class: "apprearance-none w-full px-4 py-3 rounded border border-transparent bg-grey-lighter text-grey-darkest" %>
+	  <%- if @user.errors[:firstname].any? %>
+		<p class="block text-xs text-red my-2"><%= @user.errors[:firstname].to_sentence.capitalize %></p>
+	  <% end %>
+	</div>
+	<!-- LASTNAME -->
+	<div class="block mb-4 w-full">
+	  <%= f.label :lastname, class: 'block mb-2 uppercase font-bold text-sm text-grey-dark' %>
+	  <%= f.text_field :lastname, class: "apprearance-none w-full px-4 py-3 rounded border border-transparent bg-grey-lighter text-grey-darkest" %>
+	  <%- if @user.errors[:lastname].any? %>
+		<p class="block text-xs text-red my-2"><%= @user.errors[:lastname].to_sentence.capitalize %></p>
+	  <% end %>
+	</div>
+	<!-- EMAIL -->
+	<div class="block mb-4 w-full">
+	  <%= f.label :email, class: 'block mb-2 uppercase font-bold text-sm text-grey-dark' %>
+	  <%= f.text_field :email, class: "apprearance-none w-full px-4 py-3 rounded border border-transparent bg-grey-lighter text-grey-darkest" %>
+	  <%- if @user.errors[:email].any? %>
+		<p class="block text-xs text-red my-2"><%= @user.errors[:email].to_sentence.capitalize %></p>
+	  <% end %>
+	</div>
+	<!-- BIRTHDATE -->
+	<div class="block mb-4 w-full">
+	  <%= f.label :birthdate, class: 'block mb-2 uppercase font-bold text-sm text-grey-dark' %>
+	  <%= f.date_field :birthdate, class: "apprearance-none w-full px-4 py-3 rounded border border-transparent bg-grey-lighter text-grey-darkest" %>
+	  <%- if @user.errors[:birthdate].any? %>
+		<p class="block text-xs text-red my-2"><%= @user.errors[:birthdate].to_sentence.capitalize %></p>
+	  <% end %>
+	</div>
+	<!-- PHONE -->
+	<div class="block mb-4 w-full">
+	  <%= f.label :phone, class: 'block mb-2 uppercase font-bold text-sm text-grey-dark' %>
+	  <%= f.text_field :phone, class: "apprearance-none w-full px-4 py-3 rounded border border-transparent bg-grey-lighter text-grey-darkest" %>
+	  <%- if @user.errors[:phone].any? %>
+		<p class="block text-xs text-red my-2"><%= @user.errors[:phone].to_sentence.capitalize %></p>
+	  <% end %>
+	</div>
+  </div>
+  <!-- BUTTONS -->
+  <div class="flex justify-between items-center">
+	<!-- CANCEL BTN -->
+	<%= link_to 'Annuler', @user.new_record? ? users_path() : user_path(@user), :class => 'flex items-center px-6 py-3 rounded bg-grey-lightest hover:bg-grey-lighter' %>
+	<!-- EDIT BTN -->
+	<button type="submit" class="flex items-center px-6 py-3 rounded bg-green hover:bg-green-dark text-white">
+	  <span class="text-blue-lightest mr-2">
+		<i class="fas fa-check"></i>
+	  </span>
+	  <span>Save</span>
+	</button>
+  </div>
+<% end %>
