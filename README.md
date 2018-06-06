@@ -2,7 +2,7 @@
 
 This is a simple Ruby on Rails app for learning purpose.
 
-####Features
+#### Features
 
 - User
 	- Listing
@@ -17,7 +17,8 @@ This is a simple Ruby on Rails app for learning purpose.
 	- Edition
 	- Deletion
 
-####Setup
+#### Setup
+
 Download of clone the repo
 ```shell
 git clone https://github.com/NicolasMica/RoR-learning.git demo
